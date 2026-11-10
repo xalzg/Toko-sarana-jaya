@@ -132,3 +132,4 @@ export default function Blog({ onOpenArticle, onOpenBooking }) {
     </section>
   );
 }
+

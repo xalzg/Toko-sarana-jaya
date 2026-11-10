@@ -97,3 +97,4 @@ export default function Gallery({ onPreviewGallery }) {
     </section>
   );
 }
+

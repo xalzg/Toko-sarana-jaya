@@ -26,3 +26,4 @@ function fallbackCopyText(text, callback) {
   document.body.removeChild(tempInput);
   if (callback) callback();
 }
+

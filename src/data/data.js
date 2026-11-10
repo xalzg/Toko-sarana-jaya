@@ -336,3 +336,4 @@ export const articlesData = [
     content: "Untuk motor yang setiap hari dipakai bekerja di kawasan padat Tangerang, oli mesin disarankan diganti setiap 2.000 – 2.500 km, dan oli gardan diganti pada interval kelipatan 2 kali ganti oli mesin. Selalu minta mekanik mengecek ketebalan kampas rem bersamaan saat mengisi angin ban di Toko Sarana Jaya demi keselamatan berkendara.",
   },
 ];
+
