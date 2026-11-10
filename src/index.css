@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-cobalt-50: #eef4ff;
+  --color-cobalt-100: #dae6ff;
+  --color-cobalt-500: #2563eb;
+  --color-cobalt-600: #1849c6;
+  --color-cobalt-700: #1239a0;
+  --color-cobalt-800: #0d2c7e;
+  --color-cobalt-900: #091f5c;
+  --color-cobalt-950: #06133b;
+
+  --color-butter-50: #FCF9EE;
+  --color-butter-100: #FFF1D0;
+  --color-butter-300: #F6D86B;
+  --color-butter-400: #E5BE38;
+
+  --color-espresso-800: #4A2318;
+  --color-espresso-900: #18181B;
+}
+
+/* Tipografi Display Condensed Kapital Tegas */
+.heading-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.96;
+}
+
+/* Hero Diagonal Overlay */
+.hero-industrial-overlay {
+  background: linear-gradient(98deg, #09256e 0%, #113ca6 46%, rgba(17, 60, 166, 0.82) 68%, rgba(9, 19, 48, 0.55) 100%);
+}
+@media (max-width: 768px) {
+  .hero-industrial-overlay {
+    background: linear-gradient(180deg, #09256e 0%, rgba(17, 60, 166, 0.94) 65%, rgba(9, 19, 48, 0.92) 100%);
+  }
+}
+
+/* 2 Foto Geometris di Hero Kiri Bawah (Diamond & Triangle Cutout) */
+.diamond-cutout {
+  transform: rotate(-36deg);
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 8px 12px 0px rgba(6, 19, 59, 0.5);
+}
+.diamond-cutout img {
+  transform: rotate(36deg) scale(1.45);
+}
+.triangle-cutout {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Marquee Berjalan Tanpa Putus */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 26s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hover Kartu Tegas */
+.industrial-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.industrial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -8px rgba(18, 57, 160, 0.18), 0 4px 0 0 #1239a0;
+  border-color: #1849c6;
+}
+
+/* Horizontal Snap Carousel */
+.snap-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.snap-carousel::-webkit-scrollbar {
+  display: none;
+}
+.snap-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #1239a0;
+}

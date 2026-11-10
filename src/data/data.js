@@ -1,0 +1,338 @@
+export const MECHANIC_PHONE = "0813-1781-8971";
+export const MECHANIC_PHONE_WA = "6281317818971";
+export const SHOP_ADDRESS = "Jl. Cikoneng Girang PLN No.21-31, RT.007/RW.004, Manis Jaya, Kec. Jatiuwung, Kota Tangerang, Banten 15137";
+export const GOOGLE_MAPS_SEARCH_URL = "https://www.google.com/maps/search/?api=1&query=Jl.+Cikoneng+Girang+PLN+No.21-31+Manis+Jaya+Jatiuwung+Kota+Tangerang+Banten+15137";
+export const GOOGLE_MAPS_EMBED_URL = "https://maps.google.com/maps?q=Jl.%20Cikoneng%20Girang%20PLN%20No.21-31,%20Manis%20Jaya,%20Jatiuwung,%20Kota%20Tangerang&t=&z=16&ie=UTF8&iwloc=&output=embed";
+
+export const statsData = [
+  {
+    icon: "fa-solid fa-screwdriver-wrench",
+    value: "10+",
+    label: "Tahun Pengalaman",
+    bgIcon: "bg-cobalt-50 text-cobalt-700 border-cobalt-100",
+  },
+  {
+    icon: "fa-solid fa-circle-dot",
+    value: "4.800+",
+    label: "Ban & Unit Ditangani",
+    bgIcon: "bg-cobalt-50 text-cobalt-700 border-cobalt-100",
+  },
+  {
+    icon: "fa-solid fa-gears",
+    value: "8+",
+    label: "Layanan Inti Bengkel",
+    bgIcon: "bg-cobalt-50 text-cobalt-700 border-cobalt-100",
+  },
+  {
+    icon: "fa-solid fa-star",
+    value: "4.9/5",
+    label: "Kepuasan Pelanggan",
+    bgIcon: "bg-butter-100 text-espresso-800 border-butter-300",
+  },
+];
+
+export const marqueeItems = [
+  "TAMBAL BAN TUBELESS MOTOR & MOBIL",
+  "TAMBAL BAN DALAM PRESS PANAS",
+  "GANTI BAN LUAR & BAN DALAM RING 12 / 14 / 17",
+  "GANTI PENTIL KARET & BESI",
+  "KURAS OLI MESIN & GARDAN MATIC",
+  "GANTI KAMPAS REM & BEARING RODA",
+  `MEKANIK PANGGILAN JATIUWUNG: ${MECHANIC_PHONE}`,
+];
+
+export const catalogData = [
+  {
+    id: 1,
+    title: "Tambal Ban Tubeless Motor",
+    badge: "TUBELESS",
+    category: "ban",
+    duration: "± 10 Menit",
+    spec: "Karet cacing kuat + cek bocor halus bibir velg",
+    price: "Mulai Rp 15.000",
+    image: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 2,
+    title: "Tambal Ban Tubeless Mobil",
+    badge: "RODA 4",
+    category: "ban",
+    duration: "± 15 Menit",
+    spec: "Penanganan ban mobil penumpang, MPV & pick-up",
+    price: "Mulai Rp 25.000",
+    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 3,
+    title: "Tambal Ban Dalam (Press)",
+    badge: "PRESS PANAS",
+    category: "ban",
+    duration: "± 15 Menit",
+    spec: "Karet tambal dipanaskan matang & menyatu rata",
+    price: "Mulai Rp 15.000",
+    image: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 4,
+    title: "Ganti Ban Dalam Baru",
+    badge: "RING 12/14/17",
+    category: "ban",
+    duration: "± 15 Menit",
+    spec: "Tersedia ban dalam ukuran matic, bebek, dan sport",
+    price: "Tanya Ukuran",
+    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 5,
+    title: "Ganti Ban Luar Motor",
+    badge: "PASANG RAPI",
+    category: "ban",
+    duration: "± 20 Menit",
+    spec: "Bongkar pasang ban tubeless & ban biasa harian",
+    price: "Tanya Ukuran",
+    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 6,
+    title: "Ganti Pentil & Cairan",
+    badge: "ANTI REMBES",
+    category: "ban",
+    duration: "± 10 Menit",
+    spec: "Penggantian pentil karet/besi + cairan anti bocor",
+    price: "Mulai Rp 15.000",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 7,
+    title: "Ganti Oli & Kampas Rem",
+    badge: "SERVIS HARIAN",
+    category: "servis",
+    duration: "± 15 Menit",
+    spec: "Oli mesin, oli gardan matic, kampas rem & laher roda",
+    price: "Sesuai Part",
+    image: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    id: 8,
+    title: "Panggilan Darurat Jalanan",
+    badge: "JATIUWUNG",
+    category: "darurat",
+    duration: "Siaga Cepat",
+    spec: "Layanan ke lokasi Jl. Cikoneng Girang PLN & Manis Jaya",
+    price: MECHANIC_PHONE,
+    image: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=500&q=80",
+  },
+];
+
+export const servicesData = [
+  {
+    num: "01",
+    title: "Tambal Ban Tubeless",
+    time: "± 10–15 Menit",
+    timeIcon: "fa-regular fa-clock",
+    statusBadge: "Siap Di Tempat",
+    statusClass: "text-emerald-700 bg-emerald-50 border-emerald-200",
+    features: [
+      "Ban Motor & Mobil",
+      "Karet Cacing Kuat",
+      "Cek Bocor Halus",
+      "Ganti Pentil Karet",
+    ],
+    priceLabel: "Estimasi Biaya",
+    price: "Mulai Rp 15.000",
+    image: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=600&q=80",
+    query: "Tambal Ban Tubeless",
+  },
+  {
+    num: "02",
+    title: "Tambal Ban Dalam (Press)",
+    time: "Press Pemanas",
+    timeIcon: "fa-solid fa-fire-flame-curved",
+    statusBadge: "Rapi & Matang",
+    statusClass: "text-emerald-700 bg-emerald-50 border-emerald-200",
+    features: [
+      "Press Panas Merata",
+      "Tahan Tekanan Tinggi",
+      "Periksa Paku Dalam",
+      "Tes Rendam Air",
+    ],
+    priceLabel: "Estimasi Biaya",
+    price: "Mulai Rp 15.000",
+    image: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=600&q=80",
+    query: "Tambal Ban Dalam Press",
+  },
+  {
+    num: "03",
+    title: "Ganti Ban Luar & Dalam",
+    time: "Ring 12 / 14 / 17",
+    timeIcon: "fa-solid fa-circle-dot",
+    statusBadge: "Stok Tersedia",
+    statusClass: "text-cobalt-700 bg-cobalt-50 border-cobalt-200",
+    features: [
+      "Ring 12, 14, dan 17",
+      "Ban Tubeless & Biasa",
+      "Cairan Anti Bocor",
+      "Aman Bibir Velg",
+    ],
+    priceLabel: "Stok & Ukuran",
+    price: "Cek Ukuran WA",
+    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80",
+    query: "Ganti Ban Luar / Dalam",
+  },
+  {
+    num: "04",
+    title: "Ganti Oli Mesin & Gardan",
+    time: "Perawatan Mesin",
+    timeIcon: "fa-solid fa-oil-can",
+    statusBadge: "Pengerjaan Cepat",
+    statusClass: "text-emerald-700 bg-emerald-50 border-emerald-200",
+    features: [
+      "Oli Matic & Bebek",
+      "Oli Gardan Transmisi",
+      "Bersihkan Filter",
+      "Cek Baut Pembuangan",
+    ],
+    priceLabel: "Pilihan Oli",
+    price: "Tersedia di Bengkel",
+    image: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=600&q=80",
+    query: "Ganti Oli Mesin / Gardan",
+  },
+  {
+    num: "05",
+    title: "Kampas Rem & Laher Roda",
+    time: "Kaki-Kaki & Rem",
+    timeIcon: "fa-solid fa-gears",
+    statusBadge: "Servis Presisi",
+    statusClass: "text-cobalt-700 bg-cobalt-50 border-cobalt-200",
+    features: [
+      "Rem Cakram & Tromol",
+      "Ganti Bearing Oblak",
+      "Setel Rantai Roda",
+      "Bersihkan Kaliper",
+    ],
+    priceLabel: "Pengecekan",
+    price: "Langsung Dikerjakan",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80",
+    query: "Ganti Kampas Rem & Laher Roda",
+  },
+  {
+    num: "06",
+    title: "Bantuan Darurat Jalanan",
+    time: "SIAGA PANGGILAN",
+    timeIcon: "fa-solid fa-phone-volume",
+    isEmergency: true,
+    statusBadge: "Area Jatiuwung",
+    statusClass: "text-espresso-800 bg-butter-100 border-butter-300",
+    features: [
+      "Cikoneng Girang PLN",
+      "Kel. Manis Jaya",
+      "Kawasan Jatiuwung",
+      "Kirim Shareloc WA",
+    ],
+    priceLabel: "Nomor Mekanik",
+    price: MECHANIC_PHONE,
+    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80",
+    query: "Panggilan Darurat",
+  },
+];
+
+export const galleryData = [
+  {
+    id: 1,
+    title: "Tambal Ban Tubeless Presisi",
+    img: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=800&q=80",
+    label: "Tambal Ban Tubeless",
+  },
+  {
+    id: 2,
+    title: "Roda & Ban Motor Harian",
+    img: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80",
+    label: "Ganti Ban Luar & Dalam",
+  },
+  {
+    id: 3,
+    title: "Pengecekan Mesin & Servis Harian",
+    img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80",
+    label: "Penanganan Ban Mobil",
+  },
+  {
+    id: 4,
+    title: "Pergantian Oli Mesin & Gardan",
+    img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=800&q=80",
+    label: "Ganti Oli Mesin & Gardan",
+  },
+  {
+    id: 5,
+    title: "Peralatan Kerja Lengkap",
+    img: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80",
+    label: "Peralatan Kunci Lengkap",
+  },
+  {
+    id: 6,
+    title: "Bongkar Pasang Roda Presisi",
+    img: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=800&q=80",
+    label: "Bongkar Pasang Roda",
+  },
+  {
+    id: 7,
+    title: "Servis Kampas Rem & Kaliper",
+    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80",
+    label: "Cek Cakram & Kampas Rem",
+  },
+  {
+    id: 8,
+    title: "Penanganan Motor Harian",
+    img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80",
+    label: "Perawatan Roda Motor",
+  },
+];
+
+export const faqData = [
+  {
+    question: "Di mana patokan lokasi Toko Sarana Jaya Bengkel Tambal Ban?",
+    answer: "Lokasi bengkel berada tepat di Jl. Cikoneng Girang PLN No.21-31, RT.007/RW.004, Kelurahan Manis Jaya, Kecamatan Jatiuwung, Kota Tangerang, Banten 15137. Sangat mudah dijangkau dari arah kawasan industri Manis maupun jalan raya utama Jatiuwung.",
+  },
+  {
+    question: "Berapa nomor mekanik yang aktif untuk telepon atau WhatsApp?",
+    answer: `Nomor resmi mekanik kami adalah ${MECHANIC_PHONE}. Silakan telepon langsung atau kirim pesan WhatsApp beserta titik lokasi (shareloc) Anda jika membutuhkan bantuan segera.`,
+  },
+  {
+    question: "Apakah menerima tambal ban dalam sistem press maupun ban tubeless?",
+    answer: "Ya, kami melayani keduanya. Untuk ban dalam menggunakan sistem press pemanas agar karet tambalan menyatu rata dan tahan panas, sedangkan untuk ban tubeless tersedia metode cacing berkualitas serta penggantian pentil karet/besi.",
+  },
+  {
+    question: "Apakah bisa panggil mekanik jika ban bocor di jalan sekitar Manis Jaya?",
+    answer: `Bisa. Untuk area Jl. Cikoneng Girang PLN, Manis Jaya, dan sekitar Kecamatan Jatiuwung, hubungi ${MECHANIC_PHONE} dan sebutkan jenis kendaraan (motor/mobil) serta patokan lokasi Anda.`,
+  },
+  {
+    question: "Suku cadang apa saja yang tersedia langsung di bengkel?",
+    answer: "Kami menyediakan ban dalam berbagai ukuran ring (12, 14, 17), ban luar motor harian, pentil tubeless karet & besi, cairan anti bocor, oli mesin matic/bebek, oli gardan matic, kampas rem cakram/tromol, busi, dan bearing/laher roda.",
+  },
+];
+
+export const articlesData = [
+  {
+    id: 1,
+    tag: "PANDUAN BAN",
+    title: "Batas Aman Tambal Ban Tubeless & Kapan Ban Luar Wajib Diganti",
+    preview: "Kenali perbedaan bocor di tapak tengah dengan robek di dinding samping ban agar tidak membahayakan perjalanan.",
+    img: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=800&q=80",
+    content: "Lubang bekas paku atau baut pada tapak tengah ban tubeless sangat aman ditambal menggunakan sistem cacing atau patch dalam. Namun apabila robekan berada di dinding samping (sidewall) atau kawat ban sudah terlihat dan mulai timbul benjolan, ban wajib diganti baru agar tidak pecah saat melaju di kecepatan tinggi atau saat membawa muatan.",
+  },
+  {
+    id: 2,
+    tag: "TIPS DARURAT",
+    title: "Hindari Memaksa Jalan Saat Ban Kempis di Jalur Industri Jatiuwung",
+    preview: "Memaksa motor atau mobil berjalan saat ban kempis total dapat memotong pentil ban dalam dan membuat velg peyang.",
+    img: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80",
+    content: `Banyak pengendara tetap memaksakan motor berjalan pelan saat ban kempis total demi mencari bengkel. Akibatnya, pentil ban dalam bisa sobek terpuntir dan bibir velg menghantam aspal sehingga menjadi peyang. Jika ban bocor di sekitar Jl. Cikoneng Girang PLN atau Manis Jaya, segeralah menepi di tempat aman dan hubungi mekanik kami di ${MECHANIC_PHONE}.`,
+  },
+  {
+    id: 3,
+    tag: "SERVIS RUTIN",
+    title: "Jadwal Ideal Ganti Oli Mesin, Oli Gardan & Cek Kampas Rem Harian",
+    preview: "Kendaraan yang rutin melintasi kemacetan Tangerang membutuhkan pengecekan oli dan pengereman lebih disiplin.",
+    img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=800&q=80",
+    content: "Untuk motor yang setiap hari dipakai bekerja di kawasan padat Tangerang, oli mesin disarankan diganti setiap 2.000 – 2.500 km, dan oli gardan diganti pada interval kelipatan 2 kali ganti oli mesin. Selalu minta mekanik mengecek ketebalan kampas rem bersamaan saat mengisi angin ban di Toko Sarana Jaya demi keselamatan berkendara.",
+  },
+];
