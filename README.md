@@ -20,7 +20,7 @@ Landing page modern dan responsif untuk **Toko Sarana Jaya Bengkel Tambal Ban** 
 - **Our Blog & Catatan Mekanik**: Panduan ban tubeless, tips ban kempis di jalan raya industri, dan jadwal ganti oli dengan popup baca selengkapnya.
 - **Titik Lokasi & Peta Interaktif**: Google Maps interaktif terintegrasi, fitur **Salin Alamat** dan **Salin Nomor** dengan **Toast Notification**, serta direct link ke aplikasi Google Maps.
 - **Floating WhatsApp CTA**: Tombol WhatsApp mengambang di pojok kiri bawah.
-- **Modal Booking / Panggil Mekanik**: Form interaktif dengan nama, jenis kendaraan, pilihan servis, dan catatan lokasi yang otomatis memformat chat WhatsApp langsung ke nomor `+62 898 7671 591`.
+- **Modal Booking / Panggil Mekanik**: Form interaktif dengan nama, jenis kendaraan, pilihan servis, dan catatan lokasi yang otomatis memformat chat WhatsApp langsung ke nomor `+62 898 7617 591`.
 
 ---
 

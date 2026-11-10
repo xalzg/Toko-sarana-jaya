@@ -1,5 +1,5 @@
-export const MECHANIC_PHONE = "+62 898 7671 591";
-export const MECHANIC_PHONE_WA = "628987671591";
+export const MECHANIC_PHONE = "+62 898 7617 591";
+export const MECHANIC_PHONE_WA = "628987617591";
 export const SHOP_ADDRESS = "Jl. Cikoneng Girang PLN No.21-31, RT.007/RW.004, Manis Jaya, Kec. Jatiuwung, Kota Tangerang, Banten 15137";
 export const GOOGLE_MAPS_SEARCH_URL = "https://www.google.com/maps/search/?api=1&query=Jl.+Cikoneng+Girang+PLN+No.21-31+Manis+Jaya+Jatiuwung+Kota+Tangerang+Banten+15137";
 export const GOOGLE_MAPS_EMBED_URL = "https://maps.google.com/maps?q=Jl.%20Cikoneng%20Girang%20PLN%20No.21-31,%20Manis%20Jaya,%20Jatiuwung,%20Kota%20Tangerang&t=&z=16&ie=UTF8&iwloc=&output=embed";
