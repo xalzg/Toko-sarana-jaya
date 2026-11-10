@@ -1,0 +1,16 @@
+{
+  "name": "Toko Sarana Jaya Bengkel Tambal Ban",
+  "short_name": "Sarana Jaya",
+  "description": "Layanan tambal ban tubeless, ban dalam press, ganti ban, oli, dan servis mekanik Jatiuwung Tangerang.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F8FC",
+  "theme_color": "#1239a0",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
