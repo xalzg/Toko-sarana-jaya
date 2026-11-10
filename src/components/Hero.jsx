@@ -64,7 +64,7 @@ export default function Hero({ onOpenBooking, onSelectCatalogCategory }) {
             {/* Baris Call Us & CTA */}
             <div className="pt-3 flex flex-wrap items-center gap-5">
               <a
-                href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+                href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
                 className="flex items-center gap-3.5 bg-cobalt-900/90 hover:bg-cobalt-900 border-2 border-sky-400/60 px-4 py-2.5 rounded transition group"
               >
                 <div className="w-10 h-10 rounded-full border-2 border-butter-300 flex items-center justify-center text-butter-300 group-hover:bg-butter-300 group-hover:text-cobalt-950 transition">

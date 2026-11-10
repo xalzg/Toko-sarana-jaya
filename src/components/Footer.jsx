@@ -38,7 +38,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <i className="fa-solid fa-phone text-butter-300 w-4"></i>
                 <a
-                  href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+                  href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
                   className="hover:text-white font-bold"
                 >
                   {MECHANIC_PHONE}
@@ -70,7 +70,7 @@ export default function Footer() {
                   <i className="fa-brands fa-whatsapp"></i>
                 </button>
                 <a
-                  href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+                  href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
                   aria-label="Telepon"
                   className="w-7 h-7 rounded bg-white/15 hover:bg-butter-300 hover:text-cobalt-950 flex items-center justify-center text-xs transition"
                 >

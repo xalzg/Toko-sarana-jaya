@@ -1,5 +1,5 @@
-export const MECHANIC_PHONE = "0813-1781-8971";
-export const MECHANIC_PHONE_WA = "6281317818971";
+export const MECHANIC_PHONE = "+62 898 7671 591";
+export const MECHANIC_PHONE_WA = "628987671591";
 export const SHOP_ADDRESS = "Jl. Cikoneng Girang PLN No.21-31, RT.007/RW.004, Manis Jaya, Kec. Jatiuwung, Kota Tangerang, Banten 15137";
 export const GOOGLE_MAPS_SEARCH_URL = "https://www.google.com/maps/search/?api=1&query=Jl.+Cikoneng+Girang+PLN+No.21-31+Manis+Jaya+Jatiuwung+Kota+Tangerang+Banten+15137";
 export const GOOGLE_MAPS_EMBED_URL = "https://maps.google.com/maps?q=Jl.%20Cikoneng%20Girang%20PLN%20No.21-31,%20Manis%20Jaya,%20Jatiuwung,%20Kota%20Tangerang&t=&z=16&ie=UTF8&iwloc=&output=embed";
@@ -336,4 +336,3 @@ export const articlesData = [
     content: "Untuk motor yang setiap hari dipakai bekerja di kawasan padat Tangerang, oli mesin disarankan diganti setiap 2.000 – 2.500 km, dan oli gardan diganti pada interval kelipatan 2 kali ganti oli mesin. Selalu minta mekanik mengecek ketebalan kampas rem bersamaan saat mengisi angin ban di Toko Sarana Jaya demi keselamatan berkendara.",
   },
 ];
-

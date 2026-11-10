@@ -101,7 +101,7 @@ export default function Blog({ onOpenArticle, onOpenBooking }) {
               <i className="fa-brands fa-whatsapp"></i>
             </button>
             <a
-              href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+              href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
               className="w-6 h-6 rounded-full bg-cobalt-700 text-white flex items-center justify-center text-[11px]"
             >
               <i className="fa-solid fa-phone"></i>

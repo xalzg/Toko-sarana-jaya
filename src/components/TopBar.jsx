@@ -8,7 +8,7 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-4 sm:gap-6">
           <a
-            href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+            href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
             className="flex items-center gap-2 font-mono font-bold text-cobalt-700 hover:text-cobalt-900 transition"
           >
             <i className="fa-solid fa-phone text-[11px]"></i>
@@ -40,7 +40,7 @@ export default function TopBar() {
               <i className="fa-brands fa-whatsapp"></i>
             </button>
             <a
-              href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+              href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
               title="Telepon Mekanik"
               className="w-6 h-6 rounded bg-cobalt-600 text-white flex items-center justify-center text-[11px] hover:bg-cobalt-800 transition"
             >

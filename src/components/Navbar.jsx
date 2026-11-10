@@ -154,7 +154,7 @@ export default function Navbar({ onOpenBooking }) {
           </a>
           <div className="pt-2">
             <a
-              href={`tel:${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+              href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
               className="w-full py-2.5 rounded bg-butter-300 border-2 border-cobalt-950 text-cobalt-950 font-condensed font-black uppercase tracking-wider text-center block text-lg shadow-[2px_2px_0px_#06133b]"
             >
               Hubungi: {MECHANIC_PHONE}
