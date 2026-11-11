@@ -29,56 +29,56 @@ export default function Hero({ onOpenBooking }) {
 
           {/* NAVBAR DALAM HERO */}
           <header className="relative z-20 px-5 sm:px-10 pt-6 sm:pt-8 flex items-center justify-between">
-            <a href="#home" className="flex items-center gap-2.5 text-white group">
+            <a href="#home" className="flex items-center gap-2.5 text-white group focus-visible:ring-2 focus-visible:ring-white rounded">
               <span className="font-display font-semibold text-lg sm:text-xl tracking-tight">
                 SaranaJaya.
               </span>
-              <span className="hidden sm:inline-block text-[11px] uppercase tracking-widest text-white/70 border-l border-white/25 pl-2.5">
+              <span className="hidden sm:inline-block text-[11px] uppercase tracking-widest text-white/80 border-l border-white/25 pl-2.5">
                 Bengkel & Tambal Ban
               </span>
             </a>
 
             {/* Pill Navigation Desktop */}
-            <nav className="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/15 text-[11px] uppercase tracking-wider font-medium text-white/85">
+            <nav className="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/15 text-[11px] uppercase tracking-wider font-medium text-white/90">
               <a
                 href="#home"
-                className="px-4 py-1.5 rounded-full bg-white text-ink font-semibold shadow-sm"
+                className="px-4 py-1.5 rounded-full bg-white text-ink font-semibold shadow-sm focus-visible:ring-2 focus-visible:ring-white"
               >
                 Home
               </a>
               <a
                 href="#tentang"
-                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition focus-visible:ring-2 focus-visible:ring-white"
               >
                 Bengkel
               </a>
               <a
                 href="#layanan"
-                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition focus-visible:ring-2 focus-visible:ring-white"
               >
                 Layanan & Harga
               </a>
               <a
                 href="#testimoni"
-                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition focus-visible:ring-2 focus-visible:ring-white"
               >
                 Pelanggan
               </a>
               <a
                 href="#area"
-                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition focus-visible:ring-2 focus-visible:ring-white"
               >
                 Area Jatiuwung
               </a>
               <a
                 href="#tips"
-                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition focus-visible:ring-2 focus-visible:ring-white"
               >
                 Tips
               </a>
               <button
                 onClick={onOpenBooking}
-                className="px-4 py-1.5 rounded-full bg-white/20 hover:bg-white hover:text-ink transition cursor-pointer"
+                className="px-4 py-1.5 rounded-full bg-white/20 hover:bg-white hover:text-ink transition cursor-pointer focus-visible:ring-2 focus-visible:ring-white"
               >
                 {MECHANIC_PHONE}
               </button>
@@ -94,8 +94,9 @@ export default function Hero({ onOpenBooking }) {
               </a>
               <button
                 onClick={toggleMobileMenu}
-                aria-label="Toggle Menu"
-                className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center border border-white/20 cursor-pointer"
+                aria-expanded={mobileMenuOpen}
+                aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+                className="w-10 h-10 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center border border-white/20 cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-white"
               >
                 <i
                   className={`fa-solid ${
@@ -177,14 +178,14 @@ export default function Hero({ onOpenBooking }) {
             <div className="mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-3">
               <button
                 onClick={onOpenBooking}
-                className="px-6 py-3 rounded-full bg-white text-ink hover:bg-slate-100 font-medium text-xs sm:text-sm transition shadow-lg inline-flex items-center gap-2.5 cursor-pointer"
+                className="px-6 py-3 rounded-full bg-white text-ink hover:bg-slate-100 font-medium text-xs sm:text-sm transition shadow-lg inline-flex items-center gap-2.5 cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Hubungi Mekanik: {MECHANIC_PHONE}</span>
                 <i className="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
               </button>
               <a
                 href="#lokasi"
-                className="px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm transition inline-flex items-center gap-2"
+                className="px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm transition inline-flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-white"
               >
                 <i className="fa-solid fa-location-dot text-xs"></i>
                 <span className="truncate max-w-xs sm:max-w-md">{SHOP_ADDRESS}</span>
@@ -224,7 +225,7 @@ export default function Hero({ onOpenBooking }) {
               <h3 className="font-display font-medium text-lg sm:text-xl text-ink leading-snug">
                 Tambal Tubeless & Press Pemanas
               </h3>
-              <span className="w-8 h-8 rounded-full bg-surface text-ink flex items-center justify-center text-xs shrink-0">
+              <span className="w-8 h-8 rounded-full bg-surface text-ink flex items-center justify-center text-xs shrink-0 font-semibold">
                 01
               </span>
             </div>
@@ -240,7 +241,7 @@ export default function Hero({ onOpenBooking }) {
               <h3 className="font-display font-medium text-lg sm:text-xl text-ink leading-snug">
                 Siaga Panggilan Mekanik
               </h3>
-              <span className="w-8 h-8 rounded-full bg-surface text-ink flex items-center justify-center text-xs shrink-0">
+              <span className="w-8 h-8 rounded-full bg-surface text-ink flex items-center justify-center text-xs shrink-0 font-semibold">
                 02
               </span>
             </div>

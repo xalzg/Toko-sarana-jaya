@@ -13,6 +13,13 @@ export default function ArticleSlider({ onOpenArticle }) {
     );
   };
 
+  const handleKeyDownCard = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onOpenArticle(current);
+    }
+  };
+
   return (
     <section id="tips" className="py-6 sm:py-10 px-2 sm:px-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -36,14 +43,14 @@ export default function ArticleSlider({ onOpenArticle }) {
             <button
               onClick={() => stepArticle(-1)}
               aria-label="Artikel Sebelumnya"
-              className="w-11 h-11 rounded-full bg-white hover:bg-ink text-ink hover:text-white shadow-soft flex items-center justify-center transition active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-white hover:bg-ink text-ink hover:text-white shadow-soft flex items-center justify-center transition active:scale-95 cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
             >
               <i className="fa-solid fa-chevron-left text-xs"></i>
             </button>
             <button
               onClick={() => stepArticle(1)}
               aria-label="Artikel Berikutnya"
-              className="w-11 h-11 rounded-full bg-white hover:bg-ink text-ink hover:text-white shadow-soft flex items-center justify-center transition active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-white hover:bg-ink text-ink hover:text-white shadow-soft flex items-center justify-center transition active:scale-95 cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
             >
               <i className="fa-solid fa-chevron-right text-xs"></i>
             </button>
@@ -67,8 +74,12 @@ export default function ArticleSlider({ onOpenArticle }) {
 
           {/* Kartu Depan Aktif */}
           <div
+            role="button"
+            tabIndex={0}
             onClick={() => onOpenArticle(current)}
-            className="relative z-10 w-full max-w-[400px] h-[430px] sm:h-[460px] rounded-[28px] overflow-hidden border-[5px] border-white shadow-portrait cursor-pointer group bg-ink flex flex-col justify-end p-6 sm:p-8 transition-transform duration-300 hover:scale-[1.01]"
+            onKeyDown={handleKeyDownCard}
+            aria-label={`Buka artikel: ${current.title}`}
+            className="relative z-10 w-full max-w-[400px] h-[430px] sm:h-[460px] rounded-[28px] overflow-hidden border-[5px] border-white shadow-portrait cursor-pointer group bg-ink flex flex-col justify-end p-6 sm:p-8 transition-transform duration-300 hover:scale-[1.01] focus-visible:ring-4 focus-visible:ring-[#255C7D] outline-none"
           >
             <img
               src={current.img}

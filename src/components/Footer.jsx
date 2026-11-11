@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="font-display font-bold text-lg text-ink">
             Toko Sarana Jaya
           </div>
-          <div className="font-medium text-ink">{MECHANIC_PHONE}</div>
+          <div className="font-medium text-ink font-mono">{MECHANIC_PHONE}</div>
           <p className="text-xs text-ink-muted max-w-xs leading-relaxed">
             {SHOP_ADDRESS}
           </p>
@@ -21,16 +21,28 @@ export default function Footer() {
         <div className="md:col-span-4 space-y-3">
           <div className="font-display font-semibold text-ink">Info Bengkel</div>
           <div className="grid grid-cols-2 gap-2.5">
-            <a href="#tentang" className="hover:text-ink transition">
+            <a
+              href="#tentang"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Tentang Kami
             </a>
-            <a href="#area" className="hover:text-ink transition">
+            <a
+              href="#area"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Cakupan Area
             </a>
-            <a href="#layanan" className="hover:text-ink transition">
+            <a
+              href="#layanan"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Daftar Harga
             </a>
-            <a href="#lokasi" className="hover:text-ink transition">
+            <a
+              href="#lokasi"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Peta & Kontak
             </a>
           </div>
@@ -40,16 +52,28 @@ export default function Footer() {
         <div className="md:col-span-4 space-y-3">
           <div className="font-display font-semibold text-ink">Layanan Utama</div>
           <div className="grid grid-cols-2 gap-2.5">
-            <a href="#layanan" className="hover:text-ink transition">
+            <a
+              href="#layanan"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Tambal Ban Tubeless
             </a>
-            <a href="#layanan" className="hover:text-ink transition">
+            <a
+              href="#layanan"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Press Ban Dalam
             </a>
-            <a href="#layanan" className="hover:text-ink transition">
+            <a
+              href="#layanan"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Ganti Ban & Pentil
             </a>
-            <a href="#layanan" className="hover:text-ink transition">
+            <a
+              href="#layanan"
+              className="hover:text-ink transition focus-visible:ring-2 focus-visible:ring-ink rounded"
+            >
               Oli & Kampas Rem
             </a>
           </div>
@@ -57,32 +81,33 @@ export default function Footer() {
       </div>
 
       <div className="pt-6 border-t border-slate-300/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5">
+        {/* Tombol Akses Cepat dengan Min 40-44px Touch Target */}
+        <div className="flex items-center gap-3">
           <button
             onClick={() =>
               openWhatsApp(`Halo Mekanik Toko Sarana Jaya (${MECHANIC_PHONE})`)
             }
-            aria-label="WhatsApp"
-            className="w-8 h-8 rounded-full bg-white hover:bg-ink text-ink hover:text-white flex items-center justify-center transition shadow-sm cursor-pointer"
+            aria-label="Chat WhatsApp Mekanik"
+            className="w-10 h-10 rounded-full bg-white hover:bg-ink text-ink hover:text-white flex items-center justify-center transition shadow-sm cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ink"
           >
-            <i className="fa-brands fa-whatsapp text-xs"></i>
+            <i className="fa-brands fa-whatsapp text-sm"></i>
           </button>
           <a
             href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
-            aria-label="Telepon"
-            className="w-8 h-8 rounded-full bg-white hover:bg-ink text-ink hover:text-white flex items-center justify-center transition shadow-sm"
+            aria-label={`Telepon Mekanik ${MECHANIC_PHONE}`}
+            className="w-10 h-10 rounded-full bg-white hover:bg-ink text-ink hover:text-white flex items-center justify-center transition shadow-sm active:scale-95 focus-visible:ring-2 focus-visible:ring-ink"
           >
-            <i className="fa-solid fa-phone text-[11px]"></i>
+            <i className="fa-solid fa-phone text-xs"></i>
           </a>
           <a
             href="#lokasi"
-            aria-label="Lokasi"
-            className="w-8 h-8 rounded-full bg-white hover:bg-ink text-ink hover:text-white flex items-center justify-center transition shadow-sm"
+            aria-label="Lihat Peta Lokasi Bengkel"
+            className="w-10 h-10 rounded-full bg-white hover:bg-ink text-ink hover:text-white flex items-center justify-center transition shadow-sm active:scale-95 focus-visible:ring-2 focus-visible:ring-ink"
           >
-            <i className="fa-solid fa-location-dot text-[11px]"></i>
+            <i className="fa-solid fa-location-dot text-xs"></i>
           </a>
         </div>
-        <div className="text-[11px] text-ink-soft">
+        <div className="text-[11px] text-ink-muted">
           © 2026 Toko Sarana Jaya Bengkel Tambal Ban. All rights reserved.
         </div>
       </div>

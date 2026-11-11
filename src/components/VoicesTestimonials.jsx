@@ -24,8 +24,8 @@ export default function VoicesTestimonials() {
           {/* Card 0 (Far Left - rotate -12deg) */}
           <button
             onClick={() => setActiveIdx(0)}
-            aria-label="Pilih testimoni 1"
-            className={`voice-card hidden md:block w-28 h-36 rounded-2xl overflow-hidden shadow-md -rotate-12 translate-y-6 transition-all duration-300 shrink-0 border-2 cursor-pointer ${
+            aria-label={`Pilih testimoni: ${voicesData[0].name}`}
+            className={`voice-card hidden md:block w-28 h-36 rounded-2xl overflow-hidden shadow-md -rotate-12 translate-y-6 transition-all duration-300 shrink-0 border-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D] ${
               activeIdx === 0
                 ? "border-[#255C7D] ring-2 ring-[#255C7D] opacity-100 scale-105"
                 : "border-white opacity-75 hover:opacity-100"
@@ -41,8 +41,8 @@ export default function VoicesTestimonials() {
           {/* Card 1 (Mid Left - rotate -6deg) */}
           <button
             onClick={() => setActiveIdx(1)}
-            aria-label="Pilih testimoni 2"
-            className={`voice-card w-28 sm:w-36 h-36 sm:h-44 rounded-2xl overflow-hidden shadow-lg -rotate-6 translate-y-2 transition-all duration-300 shrink-0 border-2 cursor-pointer ${
+            aria-label={`Pilih testimoni: ${voicesData[1].name}`}
+            className={`voice-card w-28 sm:w-36 h-36 sm:h-44 rounded-2xl overflow-hidden shadow-lg -rotate-6 translate-y-2 transition-all duration-300 shrink-0 border-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D] ${
               activeIdx === 1
                 ? "border-[#255C7D] ring-2 ring-[#255C7D] opacity-100 scale-105"
                 : "border-white opacity-85 hover:opacity-100"
@@ -80,8 +80,8 @@ export default function VoicesTestimonials() {
           {/* Card 3 (Mid Right - rotate +6deg) */}
           <button
             onClick={() => setActiveIdx(3)}
-            aria-label="Pilih testimoni 4"
-            className={`voice-card w-28 sm:w-36 h-36 sm:h-44 rounded-2xl overflow-hidden shadow-lg rotate-6 translate-y-2 transition-all duration-300 shrink-0 border-2 cursor-pointer ${
+            aria-label={`Pilih testimoni: ${voicesData[3].name}`}
+            className={`voice-card w-28 sm:w-36 h-36 sm:h-44 rounded-2xl overflow-hidden shadow-lg rotate-6 translate-y-2 transition-all duration-300 shrink-0 border-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D] ${
               activeIdx === 3
                 ? "border-[#255C7D] ring-2 ring-[#255C7D] opacity-100 scale-105"
                 : "border-white opacity-85 hover:opacity-100"
@@ -97,8 +97,8 @@ export default function VoicesTestimonials() {
           {/* Card 4 (Far Right - rotate +12deg) */}
           <button
             onClick={() => setActiveIdx(4)}
-            aria-label="Pilih testimoni 5"
-            className={`voice-card hidden md:block w-28 h-36 rounded-2xl overflow-hidden shadow-md rotate-12 translate-y-6 transition-all duration-300 shrink-0 border-2 cursor-pointer ${
+            aria-label={`Pilih testimoni: ${voicesData[4].name}`}
+            className={`voice-card hidden md:block w-28 h-36 rounded-2xl overflow-hidden shadow-md rotate-12 translate-y-6 transition-all duration-300 shrink-0 border-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D] ${
               activeIdx === 4
                 ? "border-[#255C7D] ring-2 ring-[#255C7D] opacity-100 scale-105"
                 : "border-white opacity-75 hover:opacity-100"
@@ -122,19 +122,23 @@ export default function VoicesTestimonials() {
           {activeVoice.quote}
         </p>
 
-        {/* Indikator Titik */}
-        <div className="flex items-center justify-center gap-2 mt-5">
-          {voicesData.map((_, i) => (
+        {/* Indikator Titik dengan Touch Target Memadai */}
+        <div className="flex items-center justify-center gap-1 mt-5">
+          {voicesData.map((v, i) => (
             <button
               key={i}
               onClick={() => setActiveIdx(i)}
-              aria-label={`Buka slide testimoni ${i + 1}`}
-              className={`transition-all duration-300 cursor-pointer ${
-                i === activeIdx
-                  ? "w-6 h-2 rounded-full bg-ink"
-                  : "w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400"
-              }`}
-            ></button>
+              aria-label={`Lihat ulasan ${v.name}`}
+              className="p-2 flex items-center justify-center cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D] rounded-full"
+            >
+              <span
+                className={`transition-all duration-300 block ${
+                  i === activeIdx
+                    ? "w-7 h-2 rounded-full bg-ink"
+                    : "w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400"
+                }`}
+              ></span>
+            </button>
           ))}
         </div>
       </div>

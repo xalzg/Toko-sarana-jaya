@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MECHANIC_PHONE } from "../data/data";
 import { openWhatsApp } from "../utils/helpers";
 
@@ -7,6 +7,19 @@ export default function BookingModal({ isOpen, onClose }) {
   const [vehicle, setVehicle] = useState("Motor Matic / Bebek");
   const [service, setService] = useState("Tambal Ban Tubeless");
   const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -26,6 +39,9 @@ export default function BookingModal({ isOpen, onClose }) {
     <div
       className="fixed inset-0 z-50 bg-black/55 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-booking-title"
     >
       <div
         className="bg-white rounded-[28px] max-w-md w-full p-6 sm:p-8 border border-slate-100 shadow-2xl relative animate-in zoom-in-95 duration-200"
@@ -33,16 +49,19 @@ export default function BookingModal({ isOpen, onClose }) {
       >
         <button
           onClick={onClose}
-          aria-label="Tutup"
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-surface hover:bg-slate-200 text-ink flex items-center justify-center transition cursor-pointer"
+          aria-label="Tutup form panggil mekanik"
+          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface hover:bg-slate-200 text-ink flex items-center justify-center transition cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D]"
         >
-          <i className="fa-solid fa-xmark"></i>
+          <i className="fa-solid fa-xmark text-sm"></i>
         </button>
 
         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#255C7D] block mb-1">
           RESPON CEPAT JATIUWUNG
         </span>
-        <h3 className="font-display font-semibold text-2xl text-ink">
+        <h3
+          id="modal-booking-title"
+          className="font-display font-semibold text-2xl text-ink"
+        >
           Hubungi Mekanik
         </h3>
         <p className="text-xs text-ink-muted mt-1 mb-6">
@@ -51,28 +70,37 @@ export default function BookingModal({ isOpen, onClose }) {
 
         <form onSubmit={handleSubmit} className="space-y-4 text-sm">
           <div>
-            <label className="block font-medium text-ink mb-1.5 text-xs">
+            <label
+              htmlFor="book-name"
+              className="block font-medium text-ink mb-1.5 text-xs"
+            >
               Nama Anda
             </label>
             <input
               type="text"
+              id="book-name"
               required
+              autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Contoh: Budi Santoso"
-              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:bg-white focus:outline-none text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:ring-2 focus:ring-[#255C7D]/30 focus:bg-white focus:outline-none text-sm transition"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-medium text-ink mb-1.5 text-xs">
+              <label
+                htmlFor="book-vehicle"
+                className="block font-medium text-ink mb-1.5 text-xs"
+              >
                 Kendaraan
               </label>
               <select
+                id="book-vehicle"
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:outline-none text-sm cursor-pointer"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:ring-2 focus:ring-[#255C7D]/30 focus:outline-none text-sm cursor-pointer transition"
               >
                 <option value="Motor Matic / Bebek">Motor Matic / Bebek</option>
                 <option value="Motor Sport">Motor Sport</option>
@@ -81,13 +109,17 @@ export default function BookingModal({ isOpen, onClose }) {
               </select>
             </div>
             <div>
-              <label className="block font-medium text-ink mb-1.5 text-xs">
+              <label
+                htmlFor="book-service"
+                className="block font-medium text-ink mb-1.5 text-xs"
+              >
                 Layanan
               </label>
               <select
+                id="book-service"
                 value={service}
                 onChange={(e) => setService(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:outline-none text-sm cursor-pointer"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:ring-2 focus:ring-[#255C7D]/30 focus:outline-none text-sm cursor-pointer transition"
               >
                 <option value="Tambal Ban Tubeless">Tambal Tubeless</option>
                 <option value="Tambal Ban Dalam (Press)">Press Ban Dalam</option>
@@ -101,21 +133,25 @@ export default function BookingModal({ isOpen, onClose }) {
           </div>
 
           <div>
-            <label className="block font-medium text-ink mb-1.5 text-xs">
+            <label
+              htmlFor="book-notes"
+              className="block font-medium text-ink mb-1.5 text-xs"
+            >
               Patokan Lokasi / Keluhan
             </label>
             <textarea
+              id="book-notes"
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Contoh: Ban belakang bocor di dekat Jl. Cikoneng Girang PLN..."
-              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:bg-white focus:outline-none text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:ring-2 focus:ring-[#255C7D]/30 focus:bg-white focus:outline-none text-sm transition"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-full bg-ink hover:bg-[#255C7D] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md cursor-pointer active:scale-95"
+            className="w-full py-3.5 rounded-full bg-ink hover:bg-[#255C7D] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#255C7D]"
           >
             <i className="fa-brands fa-whatsapp text-sm"></i> Kirim ke WhatsApp{" "}
             {MECHANIC_PHONE}
