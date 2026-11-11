@@ -88,9 +88,12 @@ export default function Hero({ onOpenBooking }) {
             <div className="flex items-center gap-2 lg:hidden">
               <a
                 href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
-                className="px-3.5 py-1.5 rounded-full bg-white text-ink font-semibold text-xs"
+                aria-label={`Telepon Mekanik ${MECHANIC_PHONE}`}
+                className="px-3 py-1.5 rounded-full bg-white text-ink font-semibold text-xs inline-flex items-center gap-1.5 shadow-sm active:scale-95 transition"
               >
-                {MECHANIC_PHONE}
+                <i className="fa-solid fa-phone text-[10px] text-[#255C7D]"></i>
+                <span className="hidden min-[420px]:inline">{MECHANIC_PHONE}</span>
+                <span className="min-[420px]:hidden">Telepon</span>
               </a>
               <button
                 onClick={toggleMobileMenu}
@@ -107,88 +110,107 @@ export default function Hero({ onOpenBooking }) {
             </div>
           </header>
 
-          {/* Mobile Dropdown Menu */}
+          {/* Mobile Dropdown Backdrop & Menu */}
           {mobileMenuOpen && (
-            <div className="relative z-30 mx-5 mt-3 rounded-2xl bg-white/95 backdrop-blur-xl p-4 text-ink shadow-xl lg:hidden space-y-2 text-sm font-medium animate-in fade-in duration-200">
-              <a
-                href="#tentang"
+            <>
+              <div
+                className="fixed inset-0 z-20 bg-black/40 backdrop-blur-xs lg:hidden"
                 onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
-              >
-                Tentang Bengkel
-              </a>
-              <a
-                href="#layanan"
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
-              >
-                Layanan & Daftar Harga
-              </a>
-              <a
-                href="#testimoni"
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
-              >
-                Suara Pelanggan
-              </a>
-              <a
-                href="#area"
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
-              >
-                Area Layanan & Lokasi
-              </a>
-              <a
-                href="#tips"
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
-              >
-                Tips Mekanik
-              </a>
-              <a
-                href="#lokasi"
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
-              >
-                Peta Jl. Cikoneng Girang PLN
-              </a>
-            </div>
+                aria-hidden="true"
+              ></div>
+              <div className="relative z-30 mx-3 sm:mx-6 mt-3 rounded-2xl bg-white/95 backdrop-blur-xl p-4 text-ink shadow-2xl border border-white/80 lg:hidden space-y-2 text-sm font-medium animate-in fade-in duration-200">
+                <a
+                  href="#tentang"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2.5 rounded-xl hover:bg-slate-100 transition"
+                >
+                  Tentang Bengkel
+                </a>
+                <a
+                  href="#layanan"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2.5 rounded-xl hover:bg-slate-100 transition"
+                >
+                  Layanan & Daftar Harga
+                </a>
+                <a
+                  href="#testimoni"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2.5 rounded-xl hover:bg-slate-100 transition"
+                >
+                  Suara Pelanggan
+                </a>
+                <a
+                  href="#area"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2.5 rounded-xl hover:bg-slate-100 transition"
+                >
+                  Area Layanan & Lokasi
+                </a>
+                <a
+                  href="#tips"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2.5 rounded-xl hover:bg-slate-100 transition"
+                >
+                  Tips Mekanik
+                </a>
+                <a
+                  href="#lokasi"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2.5 rounded-xl hover:bg-slate-100 transition"
+                >
+                  Peta Jl. Cikoneng Girang PLN
+                </a>
+                <div className="pt-2 border-t border-slate-200">
+                  <button
+                    onClick={() => {
+                      closeMobileMenu();
+                      onOpenBooking();
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-[#255C7D] text-white text-xs font-semibold text-center uppercase tracking-wider shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <i className="fa-solid fa-phone text-xs"></i>
+                    <span>Panggil Mekanik ({MECHANIC_PHONE})</span>
+                  </button>
+                </div>
+              </div>
+            </>
           )}
 
-          {/* HERO HEADLINE DENGAN GRAPHIC PILLS */}
-          <div className="relative z-10 px-5 sm:px-12 pt-10 pb-36 sm:pb-44 max-w-4xl mx-auto text-center sm:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-xs mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
-              <span>Toko Sarana Jaya Bengkel Tambal Ban • Manis Jaya, Jatiuwung</span>
+          {/* HERO HEADLINE DENGAN GRAPHIC PILLS (RESPONSIF MOBILE & DESKTOP) */}
+          <div className="relative z-10 px-4 sm:px-12 pt-6 sm:pt-10 pb-28 sm:pb-44 max-w-4xl mx-auto sm:mx-0 text-left">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[11px] sm:text-xs mb-4 sm:mb-6 max-w-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 shrink-0"></span>
+              <span className="truncate">Toko Sarana Jaya Bengkel • Manis Jaya, Jatiuwung</span>
             </div>
 
-            <h1 className="font-display font-light text-4xl sm:text-6xl lg:text-[66px] text-white leading-[1.12] tracking-tight">
+            <h1 className="font-display font-light text-3xl sm:text-6xl lg:text-[66px] text-white leading-[1.14] sm:leading-[1.12] tracking-tight">
               <span className="block">Merawat roda</span>
-              <span className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 my-1 sm:my-2">
-                <span className="hidden sm:inline-block w-28 md:w-40 h-10 md:h-12 rounded-full pill-concentric"></span>
+              <span className="flex flex-wrap items-center gap-2 sm:gap-4 my-1 sm:my-2">
+                <span className="inline-block w-14 sm:w-28 md:w-40 h-6 sm:h-10 md:h-12 rounded-full pill-concentric shrink-0 align-middle"></span>
                 <span>yang menjaga</span>
               </span>
-              <span className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4">
+              <span className="flex flex-wrap items-center gap-2 sm:gap-4">
                 <span>perjalanan Anda</span>
-                <span className="hidden sm:inline-block w-24 md:w-36 h-10 md:h-12 rounded-full pill-hatch"></span>
+                <span className="inline-block w-12 sm:w-24 md:w-36 h-6 sm:h-10 md:h-12 rounded-full pill-hatch shrink-0 align-middle"></span>
               </span>
             </h1>
 
             {/* Quick Info Bar */}
-            <div className="mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
               <button
                 onClick={onOpenBooking}
-                className="px-6 py-3 rounded-full bg-white text-ink hover:bg-slate-100 font-medium text-xs sm:text-sm transition shadow-lg inline-flex items-center gap-2.5 cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white text-ink hover:bg-slate-100 font-semibold text-xs sm:text-sm transition shadow-lg inline-flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Hubungi Mekanik: {MECHANIC_PHONE}</span>
                 <i className="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
               </button>
               <a
                 href="#lokasi"
-                className="px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm transition inline-flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm transition inline-flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-white"
               >
-                <i className="fa-solid fa-location-dot text-xs"></i>
-                <span className="truncate max-w-xs sm:max-w-md">{SHOP_ADDRESS}</span>
+                <i className="fa-solid fa-location-dot text-xs text-white/90"></i>
+                <span className="truncate max-w-[260px] sm:max-w-md">{SHOP_ADDRESS}</span>
               </a>
             </div>
           </div>
@@ -198,7 +220,7 @@ export default function Hero({ onOpenBooking }) {
       {/* OVERLAPPING BENTO CARD */}
       <section
         id="tentang"
-        className="relative z-20 -mt-24 sm:-mt-32 mx-2 sm:mx-6 mb-2 bg-[#F3F4F6]/95 backdrop-blur-xl rounded-[26px] sm:rounded-[32px] p-5 sm:p-8 shadow-glass border border-white/80"
+        className="relative z-20 -mt-16 sm:-mt-32 mx-1 sm:mx-6 mb-2 bg-[#F3F4F6]/95 backdrop-blur-xl rounded-[24px] sm:rounded-[32px] p-4 sm:p-8 shadow-glass border border-white/80"
       >
         {/* Baris Atas Bento */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
@@ -279,6 +301,7 @@ export default function Hero({ onOpenBooking }) {
                   "linear-gradient(to left, black 55%, transparent 100%)",
               }}
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#E3E6EC] via-[#E3E6EC]/90 to-transparent sm:via-transparent pointer-events-none"></div>
 
             <div className="relative z-10 max-w-xs">
               <h3 className="font-display font-medium text-xl sm:text-2xl text-ink leading-snug">

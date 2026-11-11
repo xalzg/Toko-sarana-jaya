@@ -11,6 +11,10 @@ export default function BookingModal({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen) return;
 
+    // Prevent background scrolling on iOS/Android when modal is open
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         onClose();
@@ -18,7 +22,10 @@ export default function BookingModal({ isOpen, onClose }) {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -37,20 +44,20 @@ export default function BookingModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/55 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-booking-title"
     >
       <div
-        className="bg-white rounded-[28px] max-w-md w-full p-6 sm:p-8 border border-slate-100 shadow-2xl relative animate-in zoom-in-95 duration-200"
+        className="bg-white rounded-[24px] sm:rounded-[28px] max-w-md w-full p-5 sm:p-8 border border-slate-100 shadow-2xl relative animate-in zoom-in-95 duration-200 max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Tutup form panggil mekanik"
-          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface hover:bg-slate-200 text-ink flex items-center justify-center transition cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D]"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 rounded-full bg-surface hover:bg-slate-200 text-ink flex items-center justify-center transition cursor-pointer focus-visible:ring-2 focus-visible:ring-[#255C7D]"
         >
           <i className="fa-solid fa-xmark text-sm"></i>
         </button>
@@ -60,11 +67,11 @@ export default function BookingModal({ isOpen, onClose }) {
         </span>
         <h3
           id="modal-booking-title"
-          className="font-display font-semibold text-2xl text-ink"
+          className="font-display font-semibold text-xl sm:text-2xl text-ink"
         >
           Hubungi Mekanik
         </h3>
-        <p className="text-xs text-ink-muted mt-1 mb-6">
+        <p className="text-xs text-ink-muted mt-1 mb-5 sm:mb-6">
           Toko Sarana Jaya Bengkel Tambal Ban • <strong>{MECHANIC_PHONE}</strong>
         </p>
 
@@ -88,7 +95,7 @@ export default function BookingModal({ isOpen, onClose }) {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label
                 htmlFor="book-vehicle"
@@ -144,18 +151,20 @@ export default function BookingModal({ isOpen, onClose }) {
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder="Contoh: Ban belakang bocor di dekat Jl. Cikoneng Girang PLN..."
-              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:ring-2 focus:ring-[#255C7D]/30 focus:bg-white focus:outline-none text-sm transition"
+              placeholder="Contoh: Ban belakang kena baut di depan PT..."
+              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:ring-2 focus:ring-[#255C7D]/30 focus:bg-white focus:outline-none text-sm transition resize-none"
             ></textarea>
           </div>
 
-          <button
-            type="submit"
-            className="w-full py-3.5 rounded-full bg-ink hover:bg-[#255C7D] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#255C7D]"
-          >
-            <i className="fa-brands fa-whatsapp text-sm"></i> Kirim ke WhatsApp{" "}
-            {MECHANIC_PHONE}
-          </button>
+          <div className="pt-2">
+            <button
+              type="submit"
+              className="w-full py-3.5 px-4 rounded-xl bg-ink hover:bg-[#255C7D] text-white text-xs font-semibold uppercase tracking-wider transition shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            >
+              <i className="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>Kirim ke WhatsApp Mekanik</span>
+            </button>
+          </div>
         </form>
       </div>
     </div>
