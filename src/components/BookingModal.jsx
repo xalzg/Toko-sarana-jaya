@@ -16,7 +16,7 @@ export default function BookingModal({ isOpen, onClose }) {
       ? notes.trim()
       : "Datang ke bengkel Jl. Cikoneng Girang PLN No.21-31";
 
-    const msg = `Halo Pak Mekanik *Toko Sarana Jaya Bengkel Tambal Ban*,\n\nSaya *${name}* butuh layanan:\n- Kendaraan: ${vehicle}\n- Layanan: ${service}\n- Lokasi/Keluhan: ${formattedNotes}\n\nMohon infonya Pak.`;
+    const msg = `Halo Pak Mekanik *Toko Sarana Jaya Bengkel Tambal Ban*,\n\nSaya *${name}* membutuhkan layanan:\n- Kendaraan: ${vehicle}\n- Layanan: ${service}\n- Lokasi/Catatan: ${formattedNotes}\n\nMohon informasinya Pak.`;
 
     onClose();
     openWhatsApp(msg);
@@ -24,38 +24,34 @@ export default function BookingModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-black/55 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-lg max-w-md w-full p-6 border-2 border-cobalt-900 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200"
+        className="bg-white rounded-[28px] max-w-md w-full p-6 sm:p-8 border border-slate-100 shadow-2xl relative animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          aria-label="Tutup Modal"
-          className="absolute top-4 right-4 w-8 h-8 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center cursor-pointer"
+          aria-label="Tutup"
+          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-surface hover:bg-slate-200 text-ink flex items-center justify-center transition cursor-pointer"
         >
           <i className="fa-solid fa-xmark"></i>
         </button>
 
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-11 h-11 rounded bg-cobalt-700 text-butter-300 flex items-center justify-center text-lg">
-            <i className="fa-solid fa-wrench"></i>
-          </div>
-          <div>
-            <h3 className="heading-condensed font-black text-2xl text-slate-900">
-              PANGGIL / HUBUNGI MEKANIK
-            </h3>
-            <p className="font-mono text-xs text-cobalt-700 font-bold">
-              Toko Sarana Jaya • {MECHANIC_PHONE}
-            </p>
-          </div>
-        </div>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#255C7D] block mb-1">
+          RESPON CEPAT JATIUWUNG
+        </span>
+        <h3 className="font-display font-semibold text-2xl text-ink">
+          Hubungi Mekanik
+        </h3>
+        <p className="text-xs text-ink-muted mt-1 mb-6">
+          Toko Sarana Jaya Bengkel Tambal Ban • <strong>{MECHANIC_PHONE}</strong>
+        </p>
 
-        <form onSubmit={handleSubmit} className="space-y-3.5 text-xs sm:text-sm">
+        <form onSubmit={handleSubmit} className="space-y-4 text-sm">
           <div>
-            <label className="block font-bold text-slate-800 mb-1">
+            <label className="block font-medium text-ink mb-1.5 text-xs">
               Nama Anda
             </label>
             <input
@@ -63,59 +59,49 @@ export default function BookingModal({ isOpen, onClose }) {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Contoh: Rian"
-              className="w-full px-3.5 py-2.5 rounded border-2 border-slate-200 focus:border-cobalt-700 focus:outline-none"
+              placeholder="Contoh: Budi Santoso"
+              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:bg-white focus:outline-none text-sm"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-bold text-slate-800 mb-1">
-                Jenis Kendaraan
+              <label className="block font-medium text-ink mb-1.5 text-xs">
+                Kendaraan
               </label>
               <select
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value)}
-                className="w-full px-3 py-2.5 rounded border-2 border-slate-200 focus:border-cobalt-700 focus:outline-none bg-white cursor-pointer"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:outline-none text-sm cursor-pointer"
               >
                 <option value="Motor Matic / Bebek">Motor Matic / Bebek</option>
                 <option value="Motor Sport">Motor Sport</option>
-                <option value="Mobil Penumpang / MPV">
-                  Mobil Penumpang / MPV
-                </option>
-                <option value="Mobil Pick Up / Box">
-                  Mobil Pick Up / Box
-                </option>
+                <option value="Mobil Penumpang / MPV">Mobil Penumpang</option>
+                <option value="Mobil Pick Up / Box">Mobil Operasional</option>
               </select>
             </div>
             <div>
-              <label className="block font-bold text-slate-800 mb-1">
+              <label className="block font-medium text-ink mb-1.5 text-xs">
                 Layanan
               </label>
               <select
                 value={service}
                 onChange={(e) => setService(e.target.value)}
-                className="w-full px-3 py-2.5 rounded border-2 border-slate-200 focus:border-cobalt-700 focus:outline-none bg-white cursor-pointer"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:outline-none text-sm cursor-pointer"
               >
-                <option value="Tambal Ban Tubeless">Tambal Ban Tubeless</option>
-                <option value="Tambal Ban Dalam (Press)">
-                  Tambal Ban Dalam (Press)
-                </option>
-                <option value="Ganti Ban Luar / Dalam">
-                  Ganti Ban Luar / Dalam
-                </option>
-                <option value="Ganti Oli / Kampas Rem">
-                  Ganti Oli / Kampas Rem
-                </option>
+                <option value="Tambal Ban Tubeless">Tambal Tubeless</option>
+                <option value="Tambal Ban Dalam (Press)">Press Ban Dalam</option>
+                <option value="Ganti Ban Luar / Dalam">Ganti Ban Baru</option>
+                <option value="Ganti Oli / Kampas Rem">Oli / Kampas Rem</option>
                 <option value="Panggilan Darurat di Jalan">
-                  Panggilan Darurat di Jalan
+                  Panggilan Darurat
                 </option>
               </select>
             </div>
           </div>
 
           <div>
-            <label className="block font-bold text-slate-800 mb-1">
+            <label className="block font-medium text-ink mb-1.5 text-xs">
               Patokan Lokasi / Keluhan
             </label>
             <textarea
@@ -123,15 +109,15 @@ export default function BookingModal({ isOpen, onClose }) {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Contoh: Ban belakang bocor di dekat Jl. Cikoneng Girang PLN..."
-              className="w-full px-3.5 py-2 rounded border-2 border-slate-200 focus:border-cobalt-700 focus:outline-none"
+              className="w-full px-4 py-2.5 rounded-xl bg-surface border border-slate-200 focus:border-[#255C7D] focus:bg-white focus:outline-none text-sm"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 rounded bg-cobalt-700 hover:bg-cobalt-800 text-white font-condensed font-black uppercase tracking-wider text-lg flex items-center justify-center gap-2 transition cursor-pointer active:translate-y-0.5"
+            className="w-full py-3.5 rounded-full bg-ink hover:bg-[#255C7D] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md cursor-pointer active:scale-95"
           >
-            <i className="fa-brands fa-whatsapp"></i> Kirim ke WhatsApp{" "}
+            <i className="fa-brands fa-whatsapp text-sm"></i> Kirim ke WhatsApp{" "}
             {MECHANIC_PHONE}
           </button>
         </form>
@@ -139,4 +125,3 @@ export default function BookingModal({ isOpen, onClose }) {
     </div>
   );
 }
-

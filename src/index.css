@@ -1,109 +1,79 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-condensed: 'Barlow Condensed', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
 
-  --color-cobalt-50: #eef4ff;
-  --color-cobalt-100: #dae6ff;
-  --color-cobalt-500: #2563eb;
-  --color-cobalt-600: #1849c6;
-  --color-cobalt-700: #1239a0;
-  --color-cobalt-800: #0d2c7e;
-  --color-cobalt-900: #091f5c;
-  --color-cobalt-950: #06133b;
+  --color-canvas: #E6E8EC;
+  --color-surface: #F4F5F7;
 
-  --color-butter-50: #FCF9EE;
-  --color-butter-100: #FFF1D0;
-  --color-butter-300: #F6D86B;
-  --color-butter-400: #E5BE38;
+  --color-ink: #181A1F;
+  --color-ink-muted: #5A606B;
+  --color-ink-soft: #858C97;
 
-  --color-espresso-800: #4A2318;
-  --color-espresso-900: #18181B;
-}
+  --color-heroTeal-dark: #255C7D;
+  --color-heroTeal-mid: #3D7696;
+  --color-heroTeal-light: #78A2B8;
 
-/* Tipografi Display Condensed Kapital Tegas */
-.heading-condensed {
-  font-family: 'Barlow Condensed', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: 0.96;
+  --color-sand-light: #E3D5C9;
+  --color-sand: #D5C0B0;
+  --color-sand-dark: #B89F8D;
+
+  --shadow-glass: 0 24px 60px -15px rgba(24, 26, 31, 0.12);
+  --shadow-soft: 0 12px 32px -8px rgba(24, 26, 31, 0.07);
+  --shadow-portrait: 0 25px 50px -12px rgba(24, 26, 31, 0.22);
 }
 
-/* Hero Diagonal Overlay */
-.hero-industrial-overlay {
-  background: linear-gradient(98deg, #09256e 0%, #113ca6 46%, rgba(17, 60, 166, 0.82) 68%, rgba(9, 19, 48, 0.55) 100%);
-}
-@media (max-width: 768px) {
-  .hero-industrial-overlay {
-    background: linear-gradient(180deg, #09256e 0%, rgba(17, 60, 166, 0.94) 65%, rgba(9, 19, 48, 0.92) 100%);
-  }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #E6E8EC;
+  color: #181A1F;
+  line-height: 1.6;
 }
 
-/* 2 Foto Geometris di Hero Kiri Bawah (Diamond & Triangle Cutout) */
-.diamond-cutout {
-  transform: rotate(-36deg);
-  overflow: hidden;
-  border: 4px solid #ffffff;
-  box-shadow: 8px 12px 0px rgba(6, 19, 59, 0.5);
-}
-.diamond-cutout img {
-  transform: rotate(36deg) scale(1.45);
-}
-.triangle-cutout {
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+h1, h2, h3, h4, .font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.03em;
 }
 
-/* Marquee Berjalan Tanpa Putus */
-@keyframes marqueeScroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marqueeScroll 26s linear infinite;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
+/* Elemen Dekoratif Pill di Hero (Sesuai Referensi Dribbble Florforme) */
+.pill-concentric {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.08), inset 0 0 0 8px rgba(255, 255, 255, 0.12);
 }
 
-/* Hover Kartu Tegas */
-.industrial-card {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+.pill-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.28) 1.5px,
+    transparent 1.5px,
+    transparent 7px
+  );
 }
-.industrial-card:hover {
+
+/* Transisi Halus */
+.smooth-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.smooth-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px -8px rgba(18, 57, 160, 0.18), 0 4px 0 0 #1239a0;
-  border-color: #1849c6;
 }
 
-/* Horizontal Snap Carousel */
-.snap-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.snap-carousel::-webkit-scrollbar {
-  display: none;
-}
-.snap-item {
-  scroll-snap-align: start;
-  flex-shrink: 0;
+/* Glow lembut di belakang kartu testimoni tengah */
+.voice-glow {
+  background: radial-gradient(circle, rgba(213, 192, 176, 0.65) 0%, rgba(56, 118, 150, 0.18) 45%, transparent 72%);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #E6E8EC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1239a0;
+  background: #3D7696;
+  border-radius: 4px;
 }

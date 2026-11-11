@@ -1,170 +1,332 @@
-import React from "react";
+import React, { useState } from "react";
 import { MECHANIC_PHONE, SHOP_ADDRESS } from "../data/data";
 
-export default function Hero({ onOpenBooking, onSelectCatalogCategory }) {
-  const handlePillClick = (category) => {
-    if (onSelectCatalogCategory) {
-      onSelectCatalogCategory(category);
-    }
-    const elem = document.getElementById("harga");
-    if (elem) {
-      elem.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+export default function Hero({ onOpenBooking }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-cobalt-950">
-      {/* Foto Latar Bengkel Sebelah Kanan */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1800&q=80"
-          alt="Pengerjaan Ban & Mesin di Toko Sarana Jaya"
-          onError={(e) => {
-            e.currentTarget.src =
-              "https://placehold.co/1600x900/091f5c/ffffff?text=Toko+Sarana+Jaya+Bengkel";
-          }}
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 hero-industrial-overlay"></div>
-        {/* Aksen Geometris Sisi Kiri */}
-        <div className="hidden lg:block absolute -left-28 top-12 w-96 h-96 bg-cobalt-950/55 rotate-45 pointer-events-none"></div>
-      </div>
+    <>
+      {/* HERO VISUAL CONTAINER */}
+      <section
+        id="home"
+        className="relative rounded-[26px] sm:rounded-[32px] overflow-hidden bg-gradient-to-b from-[#255C7D] via-[#487D9C] to-[#1E242B]"
+      >
+        {/* Background Image dengan Blending Atmosferik */}
+        <div className="relative min-h-[600px] sm:min-h-[680px] flex flex-col justify-between">
+          <img
+            src="https://images.pexels.com/photos/37513579/pexels-photo-37513579.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Mekanik Toko Sarana Jaya Sedang Menambal Ban Motor"
+            onError={(e) => {
+              e.currentTarget.src =
+                "https://placehold.co/1400x800/255C7D/ffffff?text=Toko+Sarana+Jaya+Bengkel+Tambal+Ban";
+            }}
+            className="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#225877]/90 via-[#387090]/55 to-[#12161C]/90"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-28 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-          {/* Kolom Kiri: Tipografi Condensed Kapital Raksasa + Kotak Highlight + Nomor Mekanik */}
-          <div className="lg:col-span-7 text-white space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-butter-100 text-espresso-800 font-mono text-[11px] font-bold uppercase tracking-wider rounded-sm border border-butter-300">
-              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-              <span>SIAGA JALUR CIKONENG GIRANG PLN • MANIS JAYA • JATIUWUNG</span>
-            </div>
+          {/* NAVBAR DALAM HERO */}
+          <header className="relative z-20 px-5 sm:px-10 pt-6 sm:pt-8 flex items-center justify-between">
+            <a href="#home" className="flex items-center gap-2.5 text-white group">
+              <span className="font-display font-semibold text-lg sm:text-xl tracking-tight">
+                SaranaJaya.
+              </span>
+              <span className="hidden sm:inline-block text-[11px] uppercase tracking-widest text-white/70 border-l border-white/25 pl-2.5">
+                Bengkel & Tambal Ban
+              </span>
+            </a>
 
-            <div className="space-y-2">
-              <h1 className="heading-condensed font-black text-5xl sm:text-6xl lg:text-[72px] text-white tracking-tight">
-                TOKO SARANA JAYA
-              </h1>
-              {/* Highlight Box Biru Terang */}
-              <div className="inline-block bg-[#2B7FFF] px-4 py-2 border-2 border-white/40 shadow-[6px_6px_0px_rgba(6,19,59,0.6)]">
-                <span className="heading-condensed font-black text-4xl sm:text-5xl lg:text-[58px] text-white block">
-                  BENGKEL TAMBAL BAN
-                </span>
-              </div>
-            </div>
-
-            <p className="font-condensed font-bold text-lg sm:text-xl tracking-[0.18em] text-butter-300 uppercase pt-1">
-              TAMBAL BAN MOTOR & MOBIL • PRESS BAN DALAM • SERVIS MEKANIK HARIAN
-            </p>
-
-            <p className="text-sm sm:text-base text-blue-100 max-w-xl leading-relaxed font-normal">
-              Penanganan langsung tanpa antre berbelit untuk ban bocor di jalan,
-              ganti ban luar/dalam, ganti pentil, kuras oli, hingga kampas rem.
-              Berlokasi di <strong>{SHOP_ADDRESS}</strong>.
-            </p>
-
-            {/* Baris Call Us & CTA */}
-            <div className="pt-3 flex flex-wrap items-center gap-5">
+            {/* Pill Navigation Desktop */}
+            <nav className="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/15 text-[11px] uppercase tracking-wider font-medium text-white/85">
               <a
-                href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
-                className="flex items-center gap-3.5 bg-cobalt-900/90 hover:bg-cobalt-900 border-2 border-sky-400/60 px-4 py-2.5 rounded transition group"
+                href="#home"
+                className="px-4 py-1.5 rounded-full bg-white text-ink font-semibold shadow-sm"
               >
-                <div className="w-10 h-10 rounded-full border-2 border-butter-300 flex items-center justify-center text-butter-300 group-hover:bg-butter-300 group-hover:text-cobalt-950 transition">
-                  <i className="fa-solid fa-phone-volume"></i>
-                </div>
-                <div>
-                  <div className="text-[11px] uppercase tracking-wider text-sky-200 font-bold">
-                    Call / WA Mekanik
-                  </div>
-                  <div className="font-mono font-bold text-lg sm:text-xl text-white tracking-tight">
-                    {MECHANIC_PHONE}
-                  </div>
-                </div>
+                Home
               </a>
-
+              <a
+                href="#tentang"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+              >
+                Bengkel
+              </a>
+              <a
+                href="#layanan"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+              >
+                Layanan & Harga
+              </a>
+              <a
+                href="#testimoni"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+              >
+                Pelanggan
+              </a>
+              <a
+                href="#area"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+              >
+                Area Jatiuwung
+              </a>
+              <a
+                href="#tips"
+                className="px-4 py-1.5 rounded-full hover:bg-white/15 transition"
+              >
+                Tips
+              </a>
               <button
                 onClick={onOpenBooking}
-                className="px-6 py-3.5 rounded bg-butter-300 hover:bg-butter-400 text-cobalt-950 font-condensed font-black uppercase tracking-wider text-xl border-2 border-white shadow-[4px_4px_0px_#06133b] transition cursor-pointer active:translate-y-0.5"
+                className="px-4 py-1.5 rounded-full bg-white/20 hover:bg-white hover:text-ink transition cursor-pointer"
               >
-                Panggil Ke Lokasi
+                {MECHANIC_PHONE}
+              </button>
+            </nav>
+
+            {/* Mobile Menu Trigger */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <a
+                href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+                className="px-3.5 py-1.5 rounded-full bg-white text-ink font-semibold text-xs"
+              >
+                {MECHANIC_PHONE}
+              </a>
+              <button
+                onClick={toggleMobileMenu}
+                aria-label="Toggle Menu"
+                className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center border border-white/20 cursor-pointer"
+              >
+                <i
+                  className={`fa-solid ${
+                    mobileMenuOpen ? "fa-xmark" : "fa-bars"
+                  } text-sm`}
+                ></i>
               </button>
             </div>
-          </div>
+          </header>
 
-          {/* Kolom Kanan: 6 Pill Layanan Transparan */}
-          <div className="lg:col-span-5 flex flex-col justify-end lg:items-end">
-            <div className="w-full max-w-md bg-cobalt-950/65 backdrop-blur-md p-5 rounded border border-white/25">
-              <div className="grid grid-cols-3 gap-2.5">
-                <button
-                  onClick={() => handlePillClick("ban")}
-                  className="px-3 py-2 rounded-full border border-white/60 bg-white/10 hover:bg-butter-300 hover:text-cobalt-950 hover:border-butter-300 text-white text-xs font-bold uppercase tracking-wider text-center transition cursor-pointer"
-                >
-                  Tubeless
-                </button>
-                <button
-                  onClick={() => handlePillClick("ban")}
-                  className="px-3 py-2 rounded-full border border-white/60 bg-white/10 hover:bg-butter-300 hover:text-cobalt-950 hover:border-butter-300 text-white text-xs font-bold uppercase tracking-wider text-center transition cursor-pointer"
-                >
-                  Press Dalam
-                </button>
-                <button
-                  onClick={() => handlePillClick("ban")}
-                  className="px-3 py-2 rounded-full border border-white/60 bg-white/10 hover:bg-butter-300 hover:text-cobalt-950 hover:border-butter-300 text-white text-xs font-bold uppercase tracking-wider text-center transition cursor-pointer"
-                >
-                  Ganti Ban
-                </button>
-                <button
-                  onClick={() => handlePillClick("servis")}
-                  className="px-3 py-2 rounded-full border border-white/60 bg-white/10 hover:bg-butter-300 hover:text-cobalt-950 hover:border-butter-300 text-white text-xs font-bold uppercase tracking-wider text-center transition cursor-pointer"
-                >
-                  Ganti Oli
-                </button>
-                <button
-                  onClick={() => handlePillClick("servis")}
-                  className="px-3 py-2 rounded-full border border-white/60 bg-white/10 hover:bg-butter-300 hover:text-cobalt-950 hover:border-butter-300 text-white text-xs font-bold uppercase tracking-wider text-center transition cursor-pointer"
-                >
-                  Kampas Rem
-                </button>
-                <button
-                  onClick={() => handlePillClick("darurat")}
-                  className="px-3 py-2 rounded-full border border-white/60 bg-white/10 hover:bg-butter-300 hover:text-cobalt-950 hover:border-butter-300 text-white text-xs font-bold uppercase tracking-wider text-center transition cursor-pointer"
-                >
-                  Panggilan
-                </button>
-              </div>
-              <p className="text-[11px] text-center text-sky-200 mt-3.5 font-semibold tracking-wide">
-                Jasa Tambal Ban & Servis Kendaraan Area Jatiuwung – Tangerang
-              </p>
+          {/* Mobile Dropdown Menu */}
+          {mobileMenuOpen && (
+            <div className="relative z-30 mx-5 mt-3 rounded-2xl bg-white/95 backdrop-blur-xl p-4 text-ink shadow-xl lg:hidden space-y-2 text-sm font-medium animate-in fade-in duration-200">
+              <a
+                href="#tentang"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
+              >
+                Tentang Bengkel
+              </a>
+              <a
+                href="#layanan"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
+              >
+                Layanan & Daftar Harga
+              </a>
+              <a
+                href="#testimoni"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
+              >
+                Suara Pelanggan
+              </a>
+              <a
+                href="#area"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
+              >
+                Area Layanan & Lokasi
+              </a>
+              <a
+                href="#tips"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
+              >
+                Tips Mekanik
+              </a>
+              <a
+                href="#lokasi"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-xl hover:bg-slate-100"
+              >
+                Peta Jl. Cikoneng Girang PLN
+              </a>
+            </div>
+          )}
+
+          {/* HERO HEADLINE DENGAN GRAPHIC PILLS */}
+          <div className="relative z-10 px-5 sm:px-12 pt-10 pb-36 sm:pb-44 max-w-4xl mx-auto text-center sm:text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-xs mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+              <span>Toko Sarana Jaya Bengkel Tambal Ban • Manis Jaya, Jatiuwung</span>
+            </div>
+
+            <h1 className="font-display font-light text-4xl sm:text-6xl lg:text-[66px] text-white leading-[1.12] tracking-tight">
+              <span className="block">Merawat roda</span>
+              <span className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 my-1 sm:my-2">
+                <span className="hidden sm:inline-block w-28 md:w-40 h-10 md:h-12 rounded-full pill-concentric"></span>
+                <span>yang menjaga</span>
+              </span>
+              <span className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4">
+                <span>perjalanan Anda</span>
+                <span className="hidden sm:inline-block w-24 md:w-36 h-10 md:h-12 rounded-full pill-hatch"></span>
+              </span>
+            </h1>
+
+            {/* Quick Info Bar */}
+            <div className="mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-3">
+              <button
+                onClick={onOpenBooking}
+                className="px-6 py-3 rounded-full bg-white text-ink hover:bg-slate-100 font-medium text-xs sm:text-sm transition shadow-lg inline-flex items-center gap-2.5 cursor-pointer"
+              >
+                <span>Hubungi Mekanik: {MECHANIC_PHONE}</span>
+                <i className="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+              </button>
+              <a
+                href="#lokasi"
+                className="px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm transition inline-flex items-center gap-2"
+              >
+                <i className="fa-solid fa-location-dot text-xs"></i>
+                <span className="truncate max-w-xs sm:max-w-md">{SHOP_ADDRESS}</span>
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 2 Foto Produk/Bengkel Geometris di Kiri Bawah Hero */}
-      <div className="hidden sm:flex items-end gap-4 absolute -bottom-7 left-6 lg:left-16 z-20 pointer-events-none">
-        {/* Foto 1: Bingkai Berlian Miring */}
-        <div className="w-28 h-28 lg:w-36 lg:h-36 diamond-cutout bg-slate-900">
-          <img
-            src="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=500&q=80"
-            alt="Foto Produk Ban & Velg"
-            onError={(e) => {
-              e.currentTarget.src =
-                "https://placehold.co/300x300/1239a0/ffffff?text=Ban+Tubeless";
-            }}
-          />
+      {/* OVERLAPPING BENTO CARD */}
+      <section
+        id="tentang"
+        className="relative z-20 -mt-24 sm:-mt-32 mx-2 sm:mx-6 mb-2 bg-[#F3F4F6]/95 backdrop-blur-xl rounded-[26px] sm:rounded-[32px] p-5 sm:p-8 shadow-glass border border-white/80"
+      >
+        {/* Baris Atas Bento */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
+          {/* Narasi Kiri */}
+          <div className="lg:col-span-5 p-3 sm:p-5 flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft block mb-3">
+                PROFIL SARANA JAYA
+              </span>
+              <h2 className="font-display font-normal text-3xl sm:text-4xl text-ink leading-[1.15]">
+                Penanganan ban yang presisi & jujur
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-ink-muted mt-6 leading-relaxed">
+              Berlokasi di <strong>{SHOP_ADDRESS}</strong>, kami melayani tambal
+              ban tubeless, tambal press ban dalam, ganti ban, oli, dan rem dengan
+              pengerjaan rapi serta ramah bagi bibir velg.
+            </p>
+          </div>
+
+          {/* Kartu Putih Tengah */}
+          <div className="lg:col-span-4 bg-white rounded-[22px] p-6 flex flex-col justify-between min-h-[210px] sm:min-h-[240px] shadow-sm border border-slate-100 smooth-card">
+            <div className="flex items-start justify-between gap-2">
+              <h3 className="font-display font-medium text-lg sm:text-xl text-ink leading-snug">
+                Tambal Tubeless & Press Pemanas
+              </h3>
+              <span className="w-8 h-8 rounded-full bg-surface text-ink flex items-center justify-center text-xs shrink-0">
+                01
+              </span>
+            </div>
+            <p className="text-xs text-ink-muted leading-relaxed pt-8">
+              Menangani kebocoran ban motor dan mobil dengan karet berkualitas
+              serta sistem press matang yang menyatu kuat pada ban dalam.
+            </p>
+          </div>
+
+          {/* Kartu Putih Kanan */}
+          <div className="lg:col-span-3 bg-white rounded-[22px] p-6 flex flex-col justify-between min-h-[210px] sm:min-h-[240px] shadow-sm border border-slate-100 smooth-card">
+            <div className="flex items-start justify-between gap-2">
+              <h3 className="font-display font-medium text-lg sm:text-xl text-ink leading-snug">
+                Siaga Panggilan Mekanik
+              </h3>
+              <span className="w-8 h-8 rounded-full bg-surface text-ink flex items-center justify-center text-xs shrink-0">
+                02
+              </span>
+            </div>
+            <div className="pt-8 space-y-2">
+              <p className="text-xs text-ink-muted leading-relaxed">
+                Bantuan darurat ban bocor di jalur Cikoneng Girang PLN & Manis
+                Jaya.
+              </p>
+              <a
+                href={`tel:+${MECHANIC_PHONE.replace(/[^0-9]/g, "")}`}
+                className="inline-block font-display font-semibold text-xs text-[#255C7D] hover:underline"
+              >
+                <i className="fa-solid fa-phone mr-1"></i>
+                {MECHANIC_PHONE}
+              </a>
+            </div>
+          </div>
         </div>
-        {/* Foto 2: Bingkai Segitiga Lebar */}
-        <div className="w-44 h-28 lg:w-56 lg:h-36 bg-white p-1.5 triangle-cutout shadow-2xl -ml-5">
-          <img
-            src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=500&q=80"
-            alt="Pengerjaan Mekanik Bengkel"
-            onError={(e) => {
-              e.currentTarget.src =
-                "https://placehold.co/400x300/1239a0/ffffff?text=Servis+Mekanik";
-            }}
-            className="w-full h-full object-cover triangle-cutout"
-          />
+
+        {/* Baris Bawah Bento */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 mt-4 sm:mt-5">
+          {/* Kartu Lebar Kiri */}
+          <div className="lg:col-span-8 relative rounded-[22px] overflow-hidden min-h-[220px] sm:min-h-[250px] bg-[#E3E6EC] p-6 sm:p-7 flex flex-col justify-between group smooth-card">
+            <img
+              src="https://images.pexels.com/photos/12164177/pexels-photo-12164177.jpeg?auto=compress&fit=crop&w=1000&q=80"
+              alt="Detail Ban dan Velg Motor Matic"
+              onError={(e) => {
+                e.currentTarget.src =
+                  "https://placehold.co/800x400/e3e6ec/181a1f?text=Ban+dan+Velg+Motor";
+              }}
+              className="absolute right-0 top-0 w-2/3 h-full object-cover object-center opacity-90 group-hover:scale-105 transition duration-700"
+              style={{
+                maskImage: "linear-gradient(to left, black 55%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to left, black 55%, transparent 100%)",
+              }}
+            />
+
+            <div className="relative z-10 max-w-xs">
+              <h3 className="font-display font-medium text-xl sm:text-2xl text-ink leading-snug">
+                Bongkar Pasang Aman bagi Velg
+              </h3>
+            </div>
+
+            <div className="relative z-10 max-w-xs space-y-2">
+              <p className="text-xs text-ink-muted leading-relaxed">
+                Pengerjaan hati-hati untuk velg motor matic, bebek, sport, hingga
+                roda mobil operasional tanpa menggores bibir velg.
+              </p>
+              <a
+                href="#layanan"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink hover:text-[#255C7D] transition"
+              >
+                <span>Lihat Daftar Tarif</span>
+                <i className="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Kartu Gelap Kanan */}
+          <div className="lg:col-span-4 relative rounded-[22px] overflow-hidden min-h-[220px] sm:min-h-[250px] bg-ink p-6 sm:p-7 flex flex-col justify-between group smooth-card">
+            <img
+              src="https://images.pexels.com/photos/37811591/pexels-photo-37811591.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Ban Motor dan Sistem Pengereman Cakram"
+              onError={(e) => {
+                e.currentTarget.src =
+                  "https://placehold.co/500x500/181a1f/ffffff?text=Ban+dan+Rem+Motor";
+              }}
+              className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-60 group-hover:scale-105 transition duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50"></div>
+
+            <div className="relative z-10">
+              <h3 className="font-display font-medium text-xl text-white leading-snug">
+                Ban Baru, Oli &<br />
+                Kampas Rem
+              </h3>
+            </div>
+
+            <p className="relative z-10 text-xs text-white/80 leading-relaxed">
+              Sedia ban luar/dalam Ring 12, 14, 17, pentil tubeless, cairan anti
+              bocor, oli mesin, dan laher roda.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
-

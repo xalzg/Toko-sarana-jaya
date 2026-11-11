@@ -1,26 +1,46 @@
 # Toko Sarana Jaya — Bengkel Tambal Ban Landing Page
 
-Landing page modern dan responsif untuk **Toko Sarana Jaya Bengkel Tambal Ban** (Jatiuwung, Kota Tangerang), dibangun menggunakan **React + Vite + Tailwind CSS** dan siap langsung dideploy ke **Vercel**.
+Landing page modern berkonsep **Editorial & Clean Architectural Design** untuk **Toko Sarana Jaya Bengkel Tambal Ban** (Jatiuwung, Kota Tangerang). Dibangun menggunakan **React 19 + Vite 8 + Tailwind CSS v4** dan siap langsung dideploy ke **Vercel**.
 
 ---
 
-## 🚀 Fitur & Komponen Utama
+## 🎨 Desain UI/UX & Fitur Utama
 
-- **Top Utility Bar**: Nomor kontak darurat, lokasi cepat, dan shortcut WhatsApp/Telepon/Peta.
-- **Navbar Industrial**: Logo bengkel tegas, menu navigasi mulus (smooth scroll), tombol pencarian harga, dan drawer menu mobile.
-- **Hero Section**: Tipografi kapital tegas (*Barlow Condensed*), overlay diagonal industrial, diamond & triangle cutout foto, tombol call/WA, serta 6 pill shortcut filter harga.
-- **Statistik 4 Kolom**: 10+ Tahun Pengalaman, 4.800+ Ban & Unit, 8+ Layanan Inti, 4.9/5 Kepuasan.
-- **Infinite Running Marquee**: Ticker berjalan tanpa jeda berisi layanan inti dan nomor mekanik.
-- **Daftar Harga & Katalog Layanan**: Filter kategori (Semua, Ban & Pentil, Oli & Rem, Panggilan), carousel swipe horizontal dengan tombol kontrol navigasi, serta tombol tanya harga via WhatsApp.
-- **Profil Bengkel**: Kolase 2 foto bertumpuk berbingkai putih dengan lencana biru, titik lokasi detail, dan 3 poin keunggulan pengerjaan.
-- **Dark Banner & Fitur Unggulan**: 3 kartu overlap (Mekanik Ahli, Presisi & Kuat, Part Lengkap) serta kotak standar uji rendam air ban.
-- **6 Spesialisasi Layanan**: Kartu pengerjaan lengkap dengan estimasi durasi, tag kesiapan part, dan tombol order.
-- **Galeri Pengerjaan**: Dokumentasi bengkel dengan slider horizontal dan fitur **Preview Modal interaktif**.
-- **FAQ Accordion**: 5 pertanyaan umum seputar lokasi, sistem press, ban tubeless, panggilan darurat, dan stok part.
-- **Our Blog & Catatan Mekanik**: Panduan ban tubeless, tips ban kempis di jalan raya industri, dan jadwal ganti oli dengan popup baca selengkapnya.
-- **Titik Lokasi & Peta Interaktif**: Google Maps interaktif terintegrasi, fitur **Salin Alamat** dan **Salin Nomor** dengan **Toast Notification**, serta direct link ke aplikasi Google Maps.
-- **Floating WhatsApp CTA**: Tombol WhatsApp mengambang di pojok kiri bawah.
-- **Modal Booking / Panggil Mekanik**: Form interaktif dengan nama, jenis kendaraan, pilihan servis, dan catatan lokasi yang otomatis memformat chat WhatsApp langsung ke nomor `+62 898 7617 591`.
+- **Hero & Integrated Navigation**:
+  - Background atmosferik foto mekanik dengan gradient teal gelap (`#255C7D` ke `#1E242B`).
+  - Brand header `SaranaJaya.` dan pill navigation bergaya modern.
+  - Tipografi display bersih (*Plus Jakarta Sans* & *Inter*) dilengkapi graphic decorative pills (`pill-concentric` & `pill-hatch`).
+  - Shortcut langsung ke pemesanan mekanik dan koordinat lokasi.
+- **Overlapping Bento Grid Profile (`#tentang`)**:
+  - Narasi profil penanganan ban presisi & jujur.
+  - Kartu fitur: Tambal Tubeless & Press Pemanas, Siaga Panggilan Mekanik (`+62 898 7617 591`).
+  - Kartu visual lebar: Teknik bongkar pasang ramah bibir velg.
+  - Kartu gelap kontras: Ketersediaan ban baru, oli mesin, dan kampas rem.
+- **Selected Projects Style: Layanan & Daftar Harga Interaktif (`#layanan`)**:
+  - Kolom daftar vertikal dengan active indicator line.
+  - Kartu display besar dengan foto dinamis, floating white card (badge, judul, deskripsi, dan tombol Pesan via WhatsApp).
+  - Bottom metadata: Estimasi Tarif, Durasi Kerja, Cakupan Unit, serta tombol prev/next.
+- **Fanned 5-Card Customer Testimonials (`#testimoni`)**:
+  - Tampilan busur 5 kartu testimoni bertumpuk dengan efek radial glow (`.voice-glow`).
+  - Kartu tengah aktif berbingkai putih dengan quote icon badge.
+  - Interaktif: Mengklik kartu manapun otomatis memuat kutipan, nama, dan profesi pelanggan.
+- **Area & Concept Sand Split Section (`#area`)**:
+  - Desain gradasi taupe/sand (`#DBC7B8` - `#C8B09E`).
+  - 4 tab vertikal interaktif yang otomatis mengubah deskripsi dan 3 tumpukan foto fasilitas bengkel.
+- **Beyond the Blueprint: Tips & Edukasi Mekanik (`#tips`)**:
+  - Stacked card deck (kartu utama aktif dengan kartu bayangan di belakangnya).
+  - Navigasi tombol bulat putih `<` dan `>` serta counter `01 / 04`.
+  - Klik kartu untuk membuka modal baca penjelasan lengkap mekanik.
+- **CTA Banner & Interactive Google Maps (`#lokasi`)**:
+  - Banner putih bersih dengan tombol panggil dan tombol salin alamat.
+  - Kartu Google Maps responsif + kontak langsung.
+- **Minimalist Architectural Footer**:
+  - Desain rapi terbagi kolom info bengkel, layanan utama, tombol sosial media, dan hak cipta 2026.
+- **Floating WhatsApp CTA**:
+  - Tombol melayang di pojok kanan bawah dengan link langsung ke WhatsApp mekanik `+62 898 7617 591`.
+- **Modal Booking & Modal Artikel**:
+  - Formulir panggil mekanik dengan nama, jenis kendaraan, layanan, dan catatan lokasi.
+  - Modal baca artikel tips mekanik.
 
 ---
 
@@ -29,16 +49,16 @@ Landing page modern dan responsif untuk **Toko Sarana Jaya Bengkel Tambal Ban** 
 - **Framework**: React 19
 - **Build Tool**: Vite 8
 - **Styling**: Tailwind CSS v4 (`@tailwindcss/vite`)
-- **Fonts**: Barlow Condensed, Plus Jakarta Sans, JetBrains Mono
+- **Fonts**: Plus Jakarta Sans, Inter
 - **Icons**: Font Awesome 6.5.1
-- **Deployment Target**: Vercel
+- **Deployment**: Vercel
 
 ---
 
 ## 💻 Menjalankan di Komputer Lokal
 
 1. Pastikan Node.js (>= 18) sudah terinstal.
-2. Jalankan perintah instalasi (jika belum):
+2. Jalankan instalasi jika belum:
    ```bash
    npm install
    ```
@@ -46,9 +66,9 @@ Landing page modern dan responsif untuk **Toko Sarana Jaya Bengkel Tambal Ban** 
    ```bash
    npm run dev
    ```
-4. Buka tautan lokal yang muncul (biasanya `http://localhost:5173`) di browser.
+4. Buka URL `http://localhost:5173` di browser.
 
-Untuk mengecek build produksi:
+Untuk verifikasi build produksi:
 ```bash
 npm run build
 npm run preview
@@ -56,40 +76,17 @@ npm run preview
 
 ---
 
-## 🌐 Panduan Deploy ke Vercel
+## 🌐 Deploy ke Vercel
 
-Proyek ini sudah dilengkapi dengan file `vercel.json` dan konfigurasi Vite yang optimal untuk Vercel.
+Repositori ini telah dikonfigurasi dengan `vercel.json` dan siap dideploy ke Vercel:
 
-### Cara 1: Menggunakan Vercel Dashboard (Rekomendasi)
-1. Push repositori ini ke akun **GitHub** / **GitLab** / **Bitbucket** Anda:
+1. Push commit terbaru ke GitHub:
    ```bash
-   git remote add origin https://github.com/USERNAME/REPO_NAME.git
-   git branch -M main
-   git push -u origin main
+   git push origin main
    ```
-2. Buka [vercel.com](https://vercel.com) dan login.
-3. Klik **"Add New..."** -> **"Project"**.
-4. Import repositori GitHub Anda.
-5. Vercel akan otomatis mendeteksi:
-   - **Framework Preset**: `Vite`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-6. Klik **Deploy**! Landing page akan aktif dalam beberapa detik.
-
-### Cara 2: Menggunakan Vercel CLI
-1. Pasang Vercel CLI jika belum ada:
-   ```bash
-   npm install -g vercel
-   ```
-2. Jalankan perintah deploy di folder proyek:
-   ```bash
-   vercel
-   ```
-3. Ikuti prompt di terminal untuk menghubungkan proyek.
-4. Untuk rilis produksi langsung:
-   ```bash
-   vercel --prod
-   ```
+2. Di dashboard [Vercel](https://vercel.com), import repositori `xalzg/Toko-sarana-jaya`.
+3. Vercel akan otomatis mengenali framework `Vite` dan output directory `dist`.
+4. Klik **Deploy**!
 
 ---
 
@@ -97,40 +94,30 @@ Proyek ini sudah dilengkapi dengan file `vercel.json` dan konfigurasi Vite yang 
 
 ```
 Toko-Sarana-Jaya/
-├── dist/                      # Hasil build produksi Vite
-├── public/                    # Aset statis & favicon
+├── dist/                      # Bundle produksi Vite
+├── public/                    # Favicon, robots.txt, webmanifest
 ├── src/
-│   ├── assets/                # Gambar & ikon
-│   ├── components/            # Komponen modular React
-│   │   ├── TopBar.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Stats.jsx
-│   │   ├── Marquee.jsx
-│   │   ├── PricingCatalog.jsx
-│   │   ├── AboutProfile.jsx
-│   │   ├── DarkBannerFeatures.jsx
-│   │   ├── Services.jsx
-│   │   ├── CalloutBanner.jsx
-│   │   ├── Gallery.jsx
-│   │   ├── Faq.jsx
-│   │   ├── MidBanner.jsx
-│   │   ├── Blog.jsx
-│   │   ├── LocationMap.jsx
-│   │   ├── Footer.jsx
-│   │   ├── FloatingWhatsApp.jsx
-│   │   ├── BookingModal.jsx
-│   │   ├── PreviewModal.jsx
-│   │   └── Toast.jsx
+│   ├── components/            # Komponen modular UI/UX baru
+│   │   ├── Hero.jsx           # Hero visual + Overlapping bento grid
+│   │   ├── ServiceShowcase.jsx # Katalog layanan interaktif ("Selected Projects")
+│   │   ├── VoicesTestimonials.jsx # Busur 5 kartu testimoni fanned arc
+│   │   ├── AreaConcepts.jsx   # Sand split card cakupan area & fasilitas
+│   │   ├── ArticleSlider.jsx  # Stacked deck slider artikel & tips
+│   │   ├── LocationCta.jsx    # Banner CTA & Google Maps interaktif
+│   │   ├── Footer.jsx         # Minimalist architectural footer
+│   │   ├── FloatingWhatsApp.jsx # Tombol WA mengambang kanan bawah
+│   │   ├── BookingModal.jsx   # Modal panggil mekanik ke WhatsApp
+│   │   ├── ArticleModal.jsx   # Modal baca artikel
+│   │   └── Toast.jsx          # Notifikasi salin teks
 │   ├── data/
-│   │   └── data.js            # Pusat data katalog, layanan, blog, FAQ
+│   │   └── data.js            # Pusat data teks, kontak, layanan & testimoni
 │   ├── utils/
-│   │   └── helpers.js         # Helper WhatsApp & salin clipboard
-│   ├── App.jsx                # Komponen utama
-│   ├── index.css              # Setup Tailwind CSS v4 & custom animations
+│   │   └── helpers.js         # Helper WA & copy to clipboard
+│   ├── App.jsx                # Layout utama container
+│   ├── index.css              # Theme Tailwind v4 & custom pill styles
 │   └── main.jsx               # Entry point React
-├── index.html                 # HTML template + fonts & icons
+├── index.html                 # HTML template + fonts & OpenGraph
 ├── package.json
-├── vercel.json                # Konfigurasi routing rewrite Vercel
+├── vercel.json                # SPA rewrite routing
 └── vite.config.js
 ```
